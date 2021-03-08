@@ -21,7 +21,7 @@ class RecommendedToilet extends StatelessWidget {
         ? 'https://maps.apple.com/?q=${toilet.latitude},${toilet.longitude}'
         : 'https://www.google.com/maps/search/?api=1&query=${toilet.latitude},${toilet.longitude}';
     if (await canLaunch(url)) {
-      await launch(url);
+      await launch(url, forceSafariVC: false);
     } else {
       print("error while launching $url");
       // error in launching map
